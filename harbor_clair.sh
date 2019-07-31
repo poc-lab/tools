@@ -11,7 +11,7 @@ get_vul()
 {
     #curl -X GET -H 'Accept: text/plain' -u ${USER}:${PASSWORD} "${URL}/api/repositories/${rp}/tags/${t}/vulnerability/details" > result
     #输出到result 后续做漏洞数据分析
-    curl -X GET -H 'Accept: text/plain' "${URL}/api/repositories/${rp}/tags/${t}/vulnerability/details" > result
+    curl -X GET -H 'Accept: text/plain' "${URL}/api/repositories/${rp}/tags/${t}/vulnerability/details" >> result
 
 }
 
