@@ -27,8 +27,9 @@ do
     for rp in ${REPOS}
     do
         echo ${rp}
-        #获取tags
-        TAGS=$(curl -s -X GET --header 'Accept: application/json' "${URL}/api/repositories/${rp}/tags"|grep \"name\"|awk -F '"' '{print $4}'|sort -r |awk 'NR =1 {print $1}')
+        #获取tags 结合自身情况选择吧 cry
+        #TAGS=$(curl -s -X GET --header 'Accept: application/json' "${URL}/api/repositories/${rp}/tags"|grep \"name\"|awk -F '"' '{print $4}'|sort -r |awk 'NR =1 {print $1}')
+        TAGS=$(curl -s -X GET --header 'Accept: application/json' "${URL}/api/repositories/${rp}/tags"|grep \"name\"|awk -F '"' '{print $4}'|sort -ur |awk 'NR < 3 {print $1}')
 
         for t in ${TAGS}
         do
